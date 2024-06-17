@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Boston House Price Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 50px 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+        }
+        .main_page {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h1 {
+            color: #333333;
+            margin-bottom: 20px;
+        }
+        .price {
+            color: #333333;
+            font-size: 20px;
+        }
+        .input_form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .input_sec {
+            width: 80%;
+            padding: 5px;
+            margin: 0;
+            border: 1px solid #cccccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        .btn {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="main_page">
+        <h1>Boston House Price Prediction</h1>
+
+        <!-- Main input class="input_sec" For Receiving Query to our ML -->
+        <form class="input_form" action="{{ url_for('predict') }}" method="post">
+            <input class="input_sec" type="text" name="CRIM" placeholder="CRIM" required="required" /><br>
+            <input class="input_sec" type="text" name="ZN" placeholder="ZN" required="required" /><br>
+            <input class="input_sec" type="text" name="INDUS" placeholder="INDUS" required="required" /><br>
+            <input class="input_sec" type="text" name="CHAS" placeholder="CHAS" required="required" /><br>
+            <input class="input_sec" type="text" name="NOX" placeholder="NOX" required="required" /><br>
+            <input class="input_sec" type="text" name="RM" placeholder="RM" required="required" /><br>
+            <input class="input_sec" type="text" name="Age" placeholder="Age" required="required" /><br>
+            <input class="input_sec" type="text" name="DIS" placeholder="DIS" required="required" /><br>
+            <input class="input_sec" type="text" name="RAD" placeholder="RAD" required="required" /><br>
+            <input class="input_sec" type="text" name="TAX" placeholder="TAX" required="required" /><br>
+            <input class="input_sec" type="text" name="PTRATIO" placeholder="PTRATIO" required="required" /><br>
+            <input class="input_sec" type="text" name="B" placeholder="B" required="required" /><br>
+            <input class="input_sec" type="text" name="LSTAT" placeholder="LSTAT" required="required" /><br>
+            <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+        </form>
+        <br>
+        <br>
+        <div class"price">{{ prediction_text }}</div>
+    </div>
+</body>
+</html>
